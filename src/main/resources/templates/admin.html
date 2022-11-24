@@ -10,7 +10,7 @@
 
 <div>
     <nobr>
-        <a th:href="@{/createdUser}">Add User</a>
+        <a th:href="@{/admin/add}">Add User</a>
     </nobr>
 </div>
 <br/><br/>
@@ -31,8 +31,8 @@
             <td th:utext="${lst.lastName}">lastname</td>
             <td th:utext="${lst.email}">email</td>
             <td th:utext="${lst.getRoles()}">role</td>
-            <td><a th:href="@{'/edit/' + ${lst.id}}">Edit</a></td>
-            <td><a th:href="@{'/delete/' + ${lst.id}}">Delete</a></td>
+            <td><a th:href="@{'/admin/edit/' + ${lst.id}}">Edit</a></td>
+            <td><a th:href="@{'/admin/delete/' + ${lst.id}}">Delete</a></td>
         </tr>
     </table>
 </div>

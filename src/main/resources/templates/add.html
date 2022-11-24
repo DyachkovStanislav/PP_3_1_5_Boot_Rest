@@ -8,7 +8,7 @@
 <div align="center">
 <h1>Create new user</h1>
 
-<form th:action="@{/add}"
+<form th:action="@{/admin/add}"
       action="#"
       th:object="${user}" method="post">
     <table border="0">
@@ -31,6 +31,13 @@
             <td>password</td>
             <td>:</td>
             <td><input type="text" th:field="*{password}" /></td>
+        </tr>
+        <tr>
+            <td>Role</td>
+            <td><select th:field="*{roles}" multiple="multiple">
+                <option th:value="2">USER</option>
+                <option th:value="1">ADMIN</option>
+            </select></td>
         </tr>
     </table>
     <button type="submit">save</button>
