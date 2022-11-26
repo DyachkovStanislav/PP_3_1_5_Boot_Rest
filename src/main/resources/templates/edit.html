@@ -27,7 +27,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Surname</td>
+                <td>LastName</td>
                 <td><input type="text" th:field="*{lastName}"/></td>
             </tr>
             <tr>
@@ -35,18 +35,11 @@
                 <td><input type="text" th:field="*{email}"/></td>
             </tr>
             <tr>
-                <td>Password</td>
-                <td><input type="text" th:field="*{password}"/></td>
-            </tr>
-            <tr>
                 <td>Role</td>
-                <td><select th:field="*{roles}" multiple="multiple">
-                    <option th:value="2">USER</option>
-                    <option th:value="1">ADMIN</option>
-                </select></td>
-            </tr>
-
-
+                <td><input type="checkbox" name="roles" id="roles"
+                          th:each="role : ${roles}" th:value="${role.getId()}" th:text="${role.getRole()}"
+                          th:field="*{roles}"><br></td>
+            </tr><br>
             <tr>
                 <td colspan="2" align="center">
                     <button type="submit">Save</button>

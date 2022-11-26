@@ -34,10 +34,9 @@
         </tr>
         <tr>
             <td>Role</td>
-            <td><select th:field="*{roles}" multiple="multiple">
-                <option th:value="2">USER</option>
-                <option th:value="1">ADMIN</option>
-            </select></td>
+            <td><input type="checkbox" name="roles" id="roles"
+                       th:each="role : ${roles}" th:value="${role.getId()}" th:text="${role.getRole()}"
+                       th:field="*{roles}"></td>
         </tr>
     </table>
     <button type="submit">save</button>
