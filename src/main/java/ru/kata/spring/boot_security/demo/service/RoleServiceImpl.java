@@ -5,6 +5,9 @@ import ru.kata.spring.boot_security.demo.entity.Role;
 import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -16,9 +19,13 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<Role> getRoles() {
-        return roleRepository.findAll();
+    public Set<Role> getRoles() {
+        return roleRepository.findAll().stream().collect(Collectors.toSet());
     }
 
+    @Override
+    public Role findRoleByName(String role) {
+        return roleRepository.findByRole(role);
+    }
 
 }
