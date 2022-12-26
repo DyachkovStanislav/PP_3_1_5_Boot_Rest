@@ -39,7 +39,8 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String name, String lastName, int age, String email, String password) {
+    public User(Long id, String name, String lastName, int age, String email, String password) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.age = age;
@@ -90,6 +91,10 @@ public class User implements UserDetails {
 
     public Set<Role> getRoles() {
         return roles;
+    }
+
+    public String getRolesString() {
+        return roles.size() == 2 ? "ADMIN USER" : "USER";
     }
 
     public void setRoles(Set<Role> roles) {

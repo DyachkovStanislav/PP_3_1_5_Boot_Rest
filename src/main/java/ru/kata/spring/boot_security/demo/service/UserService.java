@@ -2,11 +2,12 @@ package ru.kata.spring.boot_security.demo.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import ru.kata.spring.boot_security.demo.entity.Role;
+import ru.kata.spring.boot_security.demo.dto.UserDTO;
 import ru.kata.spring.boot_security.demo.entity.User;
-
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+
 
 public interface UserService extends UserDetailsService {
 
@@ -14,9 +15,13 @@ public interface UserService extends UserDetailsService {
 
     User findUserById(Long userId);
 
-    List<User> allUsers();
+    UserDTO findById(Long userId);
 
-    void saveUser(User user);
+    List<UserDTO> allUsers();
+
+    List<User> allUser();
+
+    UserDTO saveUser(UserDTO user);
 
     void editUser(User user);
 
@@ -24,4 +29,7 @@ public interface UserService extends UserDetailsService {
 
     User getByUserName(String name);
 
+    UserDTO getUserByName(String name);
+
+    Set<String> getNameRoles();
 }
